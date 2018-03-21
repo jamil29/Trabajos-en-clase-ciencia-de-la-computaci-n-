@@ -14,5 +14,13 @@ int main()
     std::cout<<multi<<std::endl;
     std::cout<<resta<<std::endl;
     std::cout<<divi<<std::endl;
+     float x,y;
+    std::cout<<"ingrese el valor del \n radio " <<std::endl;
+    cin>>x;
+    float pi=3.1416;
+    float a=pi*(x*x);
+    std::cout<<"el area del circulo es: "<<std::endl;
+    std::cout<<a<<std::endl;
+    
     return 0;
 }
