@@ -1,0 +1,64 @@
+#include <iostream>
+
+using namespace std;
+
+bool mayor(int numero)
+{
+    return (numero>=18)?true:false;
+}
+
+int contador(int numero,int cont=0)
+{
+    if(cont==numero){
+        cout<<", "<<cont<<"."<<endl;
+        return 0;}
+    if(!cont){
+        cout<<cont;
+        return contador(numero,cont+=1);}
+    cout<<", "<<cont;
+    return contador(numero,cont+=1);
+
+}
+bool valores(int a ,int b , int c , int &mayor , int &menor , int &promedio )
+{
+    promedio = (a+b+c)/3;
+}
+void multiplos(int a, int b)
+{
+    ((a%2==0)&&(b%2==0))?cout<<"Ambos son divisibles entre 2"<<endl:(a%2==0)?cout<<a<<" es divisible entre 2"<<endl:(b%2==0)?cout<<b<<" es divisible entre 2"<<endl:cout<<"Ninguno es divisible entre 2"<<endl;
+    (a%b==0)?cout<<a<<" es multiplo de "<<b<<endl:cout<<a<<" no es multiplo de "<<b<<endl;
+    (a*a==b)?cout<<a<<" elevado al cuadrado es "<<b<<endl:cout<<a<<" elevado al cuadrado no es "<<b<<endl;
+}
+
+
+
+
+
+
+
+
+int main(){
+    /*
+     int mayor,menor;
+     int promedio;
+     valores(1,2,3,mayor,menor,promedio);
+     cout<<promedio<<endl;*/
+
+     multiplos(4,5);
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
