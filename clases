@@ -1,0 +1,23 @@
+#ifndef VALORES_H
+#define VALORES_H
+#include <string>
+
+using namespace std ;
+
+
+class Curso
+{
+    public:
+        string nombre;
+        int promedio;
+
+        curso(int prom , string n);
+        void setearPromedio(int prom);
+        void seterNombre(string n);
+        int obtenerPromedio();
+        string obtenerNombre();
+        string obtenerInfo();
+
+};
+
+#endif // VALORES_H
