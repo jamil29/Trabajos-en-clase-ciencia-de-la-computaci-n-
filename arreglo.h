@@ -14,10 +14,10 @@ public:
 					
 					Arreglo(int);
 					
-					void insertar();
-					void eliminar();
-					void vaciar();
-					void mostrar();
-					void reemplazar();
+					void insertar_valor();
+					void eliminar_valor();
+					void vaciar_valor();
+					void mostrar_valor();
+					void reemplazar_valor();
 					~Arreglo();
 };
