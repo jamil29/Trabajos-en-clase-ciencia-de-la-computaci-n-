@@ -37,30 +37,6 @@ void Arreglo::reemplazar_valor() {
 	cout << "posición del valor a reemplazar "; cin >> nElem;
 	cout << "cual es tu numero ? : "; cin >> arre[nElem];
 }
-void Arreglo::eliminar_valor() {
-	int nElem;
-	cout << "numero de elemento a eliminar: "; cin >> nElem;
-		
-	if (nElem == tamano - 1) {
-		tamano -= 1;
-
-	}
-	else {
-		for (int i = 0; i < tamano; i++) {
-			if (i == nElem) {
-				for (; i < tamano; i++) {
-					
-					arre[i] = arre[i + 1];
-					arre[i + 1] = arre2[i];
-				}
-				tamano -= 1;
-
-			}
-		}
-	}
-	
-	
-}
 
 void Arreglo::mostrar_valor() {
 	for (int i = 0; i<tamano; i++) {
