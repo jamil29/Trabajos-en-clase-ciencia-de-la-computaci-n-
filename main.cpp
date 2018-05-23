@@ -18,12 +18,12 @@ int main() {
 	
 	
 
-	valor.insertar();
-	valor.eliminar();
-	//valor.vaciar();
-	//valor.reemplazar();
+	valor.insertar_valor();
+	valor.eliminar_valor();
+	//valor.vaciar_valor();
+	//valor.reemplazar_valor();
 	
-	valor.mostrar();
+	valor.mostrar_valor();
 	
 
 
