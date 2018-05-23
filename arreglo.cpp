@@ -11,10 +11,10 @@ Arreglo::Arreglo(int tamano) {
 }
 
 
-void Arreglo::insertar() {
+void Arreglo::insertar_valor() {
 	int nElem;
 	tamano += 1;
-	cout << "En que posición deseas cambiar "; cin >> nElem;
+	cout << "En que posiciÃ³n deseas cambiar "; cin >> nElem;
 	
 	for (int i = tamano-1; i >=0 ; i--) {
 		
@@ -28,16 +28,16 @@ void Arreglo::insertar() {
 	cout << "ingrese el elemento: "; cin >> arre[nElem];
 }
 
-void Arreglo::vaciar() {
+void Arreglo::vaciar_valor() {
 	tamano = 1;
 	arre[0] = 0;
 }
-void Arreglo::reemplazar() {
+void Arreglo::reemplazar_valor() {
 	int nElem;
-	cout << "posición del valor a reemplazar "; cin >> nElem;
+	cout << "posiciÃ³n del valor a reemplazar "; cin >> nElem;
 	cout << "cual es tu numero ? : "; cin >> arre[nElem];
 }
-void Arreglo::eliminar() {
+void Arreglo::eliminar_valor() {
 	int nElem;
 	cout << "numero de elemento a eliminar: "; cin >> nElem;
 		
@@ -62,7 +62,7 @@ void Arreglo::eliminar() {
 	
 }
 
-void Arreglo::mostrar() {
+void Arreglo::mostrar_valor() {
 	for (int i = 0; i<tamano; i++) {
 		cout << arre[i] << " - ";
 	}
