@@ -15,6 +15,8 @@ int main() {
 	valor.arre[4] = 36;
 	valor.arre[5] = 446;
 	valor.arre[6] = 116;
+	valor.arre[7]=  2;
+	valor.arre[8] = 100;
 	
 	
 
@@ -24,6 +26,7 @@ int main() {
 	//valor.reemplazar_valor();
 	
 	valor.mostrar_valor();
+	
 	
 
 
