@@ -63,7 +63,7 @@ void Arreglo::invertir_valor(){
 		
 		
         pro=arre[i-1];
-        arre[i-1]=arre[len-i];
+        arre[i-1]=arre[tamano-i];
         arre[tamano-i]=pro;}		
 }
 
