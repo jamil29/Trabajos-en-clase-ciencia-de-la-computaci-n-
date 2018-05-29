@@ -50,11 +50,11 @@ Arreglo::~Arreglo() {
 	delete[] arre2;
 }
 int Arreglo::mayor(){
-    int may=arre[0];
+    int mayor_valor=arre[0];
     for(int i=0;i<tamano;i++){
-        if(arre[i]>may){
-            may=arre[i];}}
-    return may;
+        if(arre[i]>mayor_valor){
+            mayor_valor=arre[i];}}
+    return mayor_valor;
 }
 
 void Arreglo::invertir_valor(){
