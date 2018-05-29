@@ -97,41 +97,44 @@ bool Arreglo::primo_valor(int x){
 
 
 int Arreglo::mayorprim_valor(){
-    int may=0;
-    for(int i=0;i<tamano;i++){
-        if(primo(arr[i])==true){
-            if(arre[i]>may){
-                may=arre[i];}}
+    int mayor_valor=0;
+    for(int e=0;e<tamano;e++){
+	    
+        if(primo_valor(arre[e])==true){
+		
+		
+            if(arre[e]>may){
+                may=arre[e];}}
     }
-    if(may==0){
-    	cout<<"No hay numeros primos"<<endl;}
+    if(mayor_valor==0){
+    	return 0;
     return may;
 }
 
 
 int Arreglo::menor_prim_valor(){
     int men=0;
-    for(int i=0;i<tamano;i++){
-        if(esPrim(arre[i])==true){
+    for(int e=0;e<tamano;e++){
+        if(primo_valor(arre[e])==true){
         	if(men==0){
-        		men=arre[i];}
+        		men=arre[e];}
 
-            if(arre[i]<men){
-                men=arre[i];}}
+            if(arre[e]<men){
+                men=arre[e];}}
     }
     if(men==0){
-    	cout<<"No hay numeros primos"<<endl;}
+    	return 0;
     return men;
 }
 
 void Arreglo::ordenar_valor(){
     for(int i=1;i<tamano;i++){
-    	for(int j=0;j<tamano-1;j++){
-			 if(arre[j]>arre[j+1]){
-			 	int c=0;
-			 	c=arre[j];
-                arre[j]= arre[j+1];
-                arre[j+1]=c;} 
+    	for(int cot=0;cot<tamano-1;cot++){
+			 if(arre[cot]>arre[cot+1]){
+			 	int new=0;
+			 	new=arre[cot];
+                arre[cot]= arre[cot+1];
+                arre[cot+1]=new;} 
     	}
                	
     }
