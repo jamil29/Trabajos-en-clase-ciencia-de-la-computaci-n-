@@ -32,11 +32,15 @@ void Arreglo::vaciar_valor() {
 	tamano = 1;
 	arre[0] = 0;
 }
+
+
 void Arreglo::reemplazar_valor() {
 	int nElem;
 	cout << "posición del valor a reemplazar "; cin >> nElem;
 	cout << "cual es tu numero ? : "; cin >> arre[nElem];
 }
+
+
 
 void Arreglo::mostrar_valor() {
 	for (int i = 0; i<tamano; i++) {
@@ -57,6 +61,8 @@ int Arreglo::mayor(){
     return mayor_valor;
 }
 
+
+
 void Arreglo::invertir_valor(){
 	for(int i=1;i<=(tamano/2);i++){
         int pro=0;
@@ -70,9 +76,13 @@ void Arreglo::invertir_valor(){
 
 int Arreglo::menor_valor(){
     int men=arre[0];
+	
     for(int i=0;i<tamano;i++){
+	    
         if(arre[i]<men){
+		
             men=arre[i];}}
+	
     return men;
 }
 
@@ -83,6 +93,8 @@ float Arreglo::promedio_valor(){
     promedio /=tamano;
     return prom;
 }
+
+
 
 bool Arreglo::primo_valor(int pivo){
     int i=1,valor=0;
@@ -98,8 +110,11 @@ bool Arreglo::primo_valor(int pivo){
 }
 
 
+	    
+	    
 int Arreglo::mayorprim_valor(){
     int mayor_valor=0;
+	
     for(int e=0;e<tamano;e++){
 	    
         if(primo_valor(arre[e])==true){
@@ -114,28 +129,46 @@ int Arreglo::mayorprim_valor(){
 }
 
 
+	
+	
 int Arreglo::menor_prim_valor(){
     int men=0;
+	
+	
     for(int e=0;e<tamano;e++){
+	    
+	    
         if(primo_valor(arre[e])==true){
         	if(men==0){
         		men=arre[e];}
 
             if(arre[e]<men){
+		    
                 men=arre[e];}}
     }
     if(men==0){
+	    
     	return 0;
+	    
     return men;
 }
 
+	
+	
 void Arreglo::ordenar_valor(){
+	
     for(int i=1;i<tamano;i++){
+	    
     	for(int cot=0;cot<tamano-1;cot++){
+		
 			 if(arre[cot]>arre[cot+1]){
+				 
 			 	int new=0;
+				 
 			 	new=arre[cot];
+				 
                 arre[cot]= arre[cot+1];
+				 
                 arre[cot+1]=new;} 
     	}
                	
@@ -145,7 +178,10 @@ void Arreglo::ordenar_valor(){
 
 int Arreglo::sumar_valor(){
     int sumatoria=0;
+	
     for(int i=0;i<tamano;i++){
+	    
         sumatoria+=arre[i];}
+	
     return sumatoria;
 }
