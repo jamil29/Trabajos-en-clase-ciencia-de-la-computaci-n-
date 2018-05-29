@@ -57,6 +57,17 @@ int Arreglo::mayor(){
     return may;
 }
 
+void Arreglo::invertir(){
+	for(int i=1;i<=(tamano/2);i++){
+        int pro=0;
+		
+		
+        pro=arre[i-1];
+        arre[i-1]=arre[len-i];
+        arre[tamano-i]=pro;}		
+}
+
+
 int Arreglo::menor(){
     int men=arre[0];
     for(int i=0;i<tamano;i++){
@@ -128,16 +139,8 @@ void Arreglo::ordenar(){
 }
 
 int Arreglo::sumar(){
-    int sum=0;
+    int sumatoria=0;
     for(int i=0;i<tamano;i++){
-        sum+=arre[i];}
-    return sum;
-}
-
-void Arreglo::invertir(){
-	for(int i=1;i<=(tamano/2);i++){
-        int c=0;
-        c=arr[i-1];
-        arre[i-1]=arre[len-i];
-        arre[ramano-i]=c;}		
+        sumatoria+=arre[i];}
+    return sumatoria;
 }
