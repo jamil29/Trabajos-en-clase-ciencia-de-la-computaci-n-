@@ -84,12 +84,14 @@ float Arreglo::promedio_valor(){
     return prom;
 }
 
-bool Arreglo::primo_valor(int x){
-    int i=1,cant_mult=0;
-    while(i<=x){
-        !(x%i)?cant_mult+=1:cant_mult=cant_mult;
-        i++;}
-    if(cant_mult>2){
+bool Arreglo::primo_valor(int pivo){
+    int i=1,valor=0;
+    while(i<=pivo){
+	    if(pivo%i){
+		    valor+=1;
+		    i++;
+   
+    if(valor>2){
         return false;}
     else{
         return true;}
