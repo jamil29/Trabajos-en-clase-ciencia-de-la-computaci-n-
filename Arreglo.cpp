@@ -105,12 +105,12 @@ int Arreglo::mayorprim_valor(){
         if(primo_valor(arre[e])==true){
 		
 		
-            if(arre[e]>may){
-                may=arre[e];}}
+            if(arre[e]>mayor_valor){
+                mayor_valor=arre[e];}}
     }
     if(mayor_valor==0){
     	return 0;
-    return may;
+    return mayor_valor;
 }
 
 
