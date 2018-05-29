@@ -57,7 +57,7 @@ int Arreglo::mayor(){
     return may;
 }
 
-void Arreglo::invertir(){
+void Arreglo::invertir_valor(){
 	for(int i=1;i<=(tamano/2);i++){
         int pro=0;
 		
@@ -68,7 +68,7 @@ void Arreglo::invertir(){
 }
 
 
-int Arreglo::menor(){
+int Arreglo::menor_valor(){
     int men=arre[0];
     for(int i=0;i<tamano;i++){
         if(arre[i]<men){
@@ -76,7 +76,7 @@ int Arreglo::menor(){
     return men;
 }
 
-float Arreglo::promedio(){
+float Arreglo::promedio_valor(){
     float promedio=0;
     for(int i=0;i<tamano;i++){
         prom+=arre[i];}
@@ -84,7 +84,7 @@ float Arreglo::promedio(){
     return prom;
 }
 
-bool Arreglo::primo(int x){
+bool Arreglo::primo_valor(int x){
     int i=1,cant_mult=0;
     while(i<=x){
         !(x%i)?cant_mult+=1:cant_mult=cant_mult;
@@ -96,7 +96,7 @@ bool Arreglo::primo(int x){
 }
 
 
-int Arreglo::mayorprim(){
+int Arreglo::mayorprim_valor(){
     int may=0;
     for(int i=0;i<tamano;i++){
         if(primo(arr[i])==true){
@@ -109,7 +109,7 @@ int Arreglo::mayorprim(){
 }
 
 
-int Arreglo::menor_prim(){
+int Arreglo::menor_prim_valor(){
     int men=0;
     for(int i=0;i<tamano;i++){
         if(esPrim(arre[i])==true){
@@ -124,7 +124,7 @@ int Arreglo::menor_prim(){
     return men;
 }
 
-void Arreglo::ordenar(){
+void Arreglo::ordenar_valor(){
     for(int i=1;i<tamano;i++){
     	for(int j=0;j<tamano-1;j++){
 			 if(arre[j]>arre[j+1]){
@@ -138,7 +138,7 @@ void Arreglo::ordenar(){
           
 }
 
-int Arreglo::sumar(){
+int Arreglo::sumar_valor(){
     int sumatoria=0;
     for(int i=0;i<tamano;i++){
         sumatoria+=arre[i];}
