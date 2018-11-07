@@ -1,37 +1,22 @@
 #include <iostream>
-#include "Arreglo.h"
-#include <stdlib.h>
+
+#include "polygonarray.h"
 
 using namespace std;
 
+int main()
+{
+    point p(1,3);
+    point q(3,3);
+    point r(3,1);
+    point arr[]={p,q,r};
+    int size = sizeof(arr)/sizeof(arr[0]);
+    point pa2(arr,size);
+    point pa=pa2;
+    cout<<pa.getsize()<<endl;
+    pa.clear();
+    cout<<pa.getsize()<<endl;
 
-int main() {
+    return 0;
 
-	Arreglo valor(7);
-	valor.arre[0] = 10;
-	valor.arre[1] = 15;
-	valor.arre[2] = 16;
-	valor.arre[3] = 26;
-	valor.arre[4] = 36;
-	valor.arre[5] = 446;
-	valor.arre[6] = 116;
-	valor.arre[7]=  2;
-	valor.arre[8] = 100;
-	
-	
-
-	valor.insertar_valor();
-	valor.eliminar_valor();
-	//valor.vaciar_valor();
-	//valor.reemplazar_valor();
-	
-	valor.mostrar_valor();
-	
-	
-
-
-
-
-	system("pause");
-	return 0;
 }
