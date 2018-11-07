@@ -1,0 +1,154 @@
+#include <iostream>
+#include "pointarray.h"
+
+using namespace std;
+
+int main()
+{
+    point p(1,3);
+    point q(3,3);
+    point r(3,1);
+    point arr[]={p,q,r};
+    int size = sizeof(arr)/sizeof(arr[0]);
+    point pa2(arr,size);
+    point pa=pa2;
+    cout<<pa.getsize()<<endl;
+    pa.clear();
+    cout<<pa.getsize()<<endl;
+
+    return 0;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+#ifndef POINT _H
+#define POINT _H
+using namespace std;
+
+
+class pointarray
+{
+    public:
+        pointarray();
+        pointarray(const point  pts[],const int size);
+        pointarray(pointarray &o);
+        ~pointarray();
+
+        void print();
+        int getsize();
+        void clear();
+
+    private:
+        int size;
+        point *points;
+        void resize(int);
+};
+
+#endif // POINT _H
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#include <iostream>
+#include "pointarray.h"
+using namespace std;
+
+pointarray::pointarray()
+{
+        this->size = 0;
+        this->points = new point[size];
+}
+
+pointarray::pointarray(const point pts[],const int size;)
+{
+    this->size = size;
+    this->points = new point[size];
+    for(int i=0; i<size ;i++)
+        points[i]= pts[i];
+}
+
+ pointarray::printarray(pointarray &o)
+{
+   this->size = o.size;
+   this->points = new point[size];
+   for(int i=0; i<size;i++)
+    points[i] =o.points[i];
+}
+void pointarray::insert(const in pos, const point &p){
+    resize(resize +1);
+    for(int i=size-1;i<pos;i--)
+        points[i]=points[i-1];
+    points
+
+
+}
+void pointarray::resize(int newsize){
+    point *pts = new point[newsize];
+    int minsize =(newsize>size)?size:newsize;
+    for(int i=0;i<minsize;i++)
+        pts[i]=points[i];
+            delete[] points;
+            size = newsize;
+            points = pts;
+
+}
+
+void pointarray::clear()
+{
+    resize(o);
+
+int pointarray::getsize()
+{
+return size;
+}
+
+point::~point()
+{
+    delete[] points;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+v
