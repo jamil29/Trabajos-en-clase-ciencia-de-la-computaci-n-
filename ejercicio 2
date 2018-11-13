@@ -71,7 +71,7 @@ class pointarray
         void insert(const int pos , const polygon &p);
         void remove(const int pos);
         void clear();
-        void push
+        void push_back(const point &p)
 
 
 };
@@ -147,6 +147,11 @@ void polygonarray::resize(int newsize){
 
 }
 
+voidPointArray :: push_back(constPoint&p){
+resize(size+1);
+points[size- 1]=p;
+}
+
 void polygonarray::clear()
 {
     resize(o);
@@ -160,10 +165,6 @@ polygon::~polygon()
 {
     delete[] polygons;
 }
-
-
-
-
 
 
 
