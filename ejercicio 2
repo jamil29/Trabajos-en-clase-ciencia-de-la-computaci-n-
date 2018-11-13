@@ -1,17 +1,17 @@
 #include <iostream>
-#include "pointarray.h"
+#include "polygonarray.h"
 
 using namespace std;
 
 int main()
 {
-    point p(1,3);
-    point q(3,3);
-    point r(3,1);
-    point arr[]={p,q,r};
+    polygon p(1,3);
+    polygon q(3,3);
+    polygon r(3,1);
+    polygon arr[]={p,q,r};
     int size = sizeof(arr)/sizeof(arr[0]);
-    point pa2(arr,size);
-    point pa=pa2;
+    polygon pa2(arr,size);
+    polygon pa=pa2;
     cout<<pa.getsize()<<endl;
     pa.clear();
     cout<<pa.getsize()<<endl;
@@ -31,27 +31,49 @@ int main()
 
 
 
+
+
+
 #ifndef POINT _H
 #define POINT _H
+
+
 using namespace std;
+
+
+class polygon {
+    int x,y;
+
+public:
+    Polygon(int xx=0,int yy=0){x= xx ; y= yy;};
+        int getX()const{return x;};
+        int getY()const{return y;};
+        void setX(const int xx){x=xx;};
+        void setY(const int yy){y=yy;};
+
+ };
 
 
 class pointarray
 {
+    int size;
+    polygon *polygons;
+    void resize(int size);
+
     public:
+
         pointarray();
-        pointarray(const point  pts[],const int size);
-        pointarray(pointarray &o);
+        pointarray(const polygon pts[],const int size);
+        pointarray(polygonarray &o);
         ~pointarray();
 
         void print();
-        int getsize();
+        void insert(const int pos , const polygon &p);
+        void remove(const int pos);
         void clear();
+        void push
 
-    private:
-        int size;
-        point *points;
-        void resize(int);
+
 };
 
 #endif // POINT _H
@@ -78,63 +100,70 @@ class pointarray
 
 
 
-#include <iostream>
-#include "pointarray.h"
+
+
+include <iostream>
+#include "polygonarray.h"
 using namespace std;
 
-pointarray::pointarray()
+
+polygonarray::polygonarray()
 {
         this->size = 0;
-        this->points = new point[size];
+        this->polygons = new polygon[size];
 }
 
-pointarray::pointarray(const point pts[],const int size;)
+polygonarray::polygonarray(const polygon pts[],const int size;)
 {
     this->size = size;
-    this->points = new point[size];
+    this->polygons = new polygon[size];
     for(int i=0; i<size ;i++)
-        points[i]= pts[i];
+        polygons[i]= pts[i];
 }
 
- pointarray::printarray(pointarray &o)
+ polygonarray::printarray(pointarray &o)
 {
    this->size = o.size;
-   this->points = new point[size];
+   this->polygons = new polygon[size];
    for(int i=0; i<size;i++)
-    points[i] =o.points[i];
+    polygons[i] =o.polygons[i];
 }
-void pointarray::insert(const in pos, const point &p){
+void polygonarray::insert(const in pos, const polygon &p){
     resize(resize +1);
     for(int i=size-1;i<pos;i--)
-        points[i]=points[i-1];
-    points
+        polygons[i]=polygons[i-1];
+    polygons[pos] = p ;
 
 
 }
-void pointarray::resize(int newsize){
-    point *pts = new point[newsize];
+void polygonarray::resize(int newsize){
+    polygon *pts = new polygon[newsize];
     int minsize =(newsize>size)?size:newsize;
     for(int i=0;i<minsize;i++)
-        pts[i]=points[i];
-            delete[] points;
+        pts[i]=polygons[i];
+            delete[] polygons;
             size = newsize;
-            points = pts;
+            polygons = pts;
 
 }
 
-void pointarray::clear()
+void polygonarray::clear()
 {
     resize(o);
 
-int pointarray::getsize()
+int polygonarray::getsize()
 {
 return size;
 }
 
-point::~point()
+polygon::~polygon()
 {
-    delete[] points;
+    delete[] polygons;
 }
+
+
+
+
 
 
 
