@@ -26,153 +26,146 @@ int main()
 
 
 
-
-
-
-
-
-
-
-
-#ifndef POINT _H
-#define POINT _H
-
+#ifndef POLYGON_H
+#define POLYGON_H
+#include <iostream>
 
 using namespace std;
 
-
-class polygon {
-    int x,y;
-
-public:
-    Polygon(int xx=0,int yy=0){x= xx ; y= yy;};
-        int getX()const{return x;};
-        int getY()const{return y;};
-        void setX(const int xx){x=xx;};
-        void setY(const int yy){y=yy;};
-
- };
-
-
-class pointarray
+class Polygon
 {
-    int size;
-    polygon *polygons;
-    void resize(int size);
-
     public:
+        Polygon(int, int);
+        void area();
+        Polygon();
 
-        pointarray();
-        pointarray(const polygon pts[],const int size);
-        pointarray(polygonarray &o);
-        ~pointarray();
-
-        void print();
-        void insert(const int pos , const polygon &p);
-        void remove(const int pos);
-        void clear();
-        void push_back(const point &p)
-
+    protected:
+        int width;
+        int height;
 
 };
 
-#endif // POINT _H
+#endif // POLYGON_H
 
 
 
 
 
+#ifndef POLYGONARRAY_H
+#define POLYGONARRAY_H
+#include "Polygon.h"
 
+#include <iostream>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-include <iostream>
-#include "polygonarray.h"
 using namespace std;
 
-
-polygonarray::polygonarray()
+class PolygonArray
 {
-        this->size = 0;
-        this->polygons = new polygon[size];
+    public:
+        PolygonArray();
+        PolygonArray(const Polygon pts[], int size);
+        PolygonArray(PolygonArray &p);
+        ~PolygonArray();
+
+        void area();
+        int getSize();
+        void push_back(const Polygon &p);
+        void insert(const int, const Polygon &p);
+        void remove(const int);
+
+    private:
+        int size;
+        Polygon *polygons;
+        void resize(int resize);
+};
+
+#endif // POLYGONARRAY_H
+
+
+#include "PolygonArray.h"
+#include "Polygon.h"
+
+#include <iostream>
+
+using namespace std;
+
+PolygonArray::PolygonArray()
+{
+    this->size=0;
+    this->polygons=new Polygon[size];
 }
 
-polygonarray::polygonarray(const polygon pts[],const int size;)
+PolygonArray::PolygonArray(const Polygon pts[], int size)
 {
-    this->size = size;
-    this->polygons = new polygon[size];
-    for(int i=0; i<size ;i++)
-        polygons[i]= pts[i];
+    this->size=size;
+    this->polygons=new Polygon[size];
+    for(int i=0; i<size ; i++){
+        polygons[i]=pts[i];
+    }
 }
 
- polygonarray::printarray(pointarray &o)
+PolygonArray::PolygonArray(PolygonArray &p)
 {
-   this->size = o.size;
-   this->polygons = new polygon[size];
-   for(int i=0; i<size;i++)
-    polygons[i] =o.polygons[i];
+    this->size=p.size;
+    this->polygons=new Polygon[p.size];
+    for(int i=0; i<size ; i++){
+        polygons[i]=p.polygons[i];
+    }
 }
-void polygonarray::insert(const in pos, const polygon &p){
-    resize(resize +1);
-    for(int i=size-1;i<pos;i--)
+
+void PolygonArray::area()
+{
+    for(int i=0; i<size ; i++){
+        polygons[i].area();
+    }
+}
+
+int PolygonArray::getSize()
+{
+    return size;
+}
+
+void PolygonArray::resize(int newSize)
+{
+    Polygon *pts = new Polygon[newSize];
+    int minsize = (newSize > size) ? size : newSize;
+    for(int i=0; i<minsize ; i++)
+        pts[i] = polygons[i];
+
+    delete[] polygons;
+
+    size = newSize;
+    polygons = pts;
+
+}
+
+void PolygonArray::insert(const int pos, const Polygon &p)
+{
+    resize(size+1);
+    for(int i= size-1; i>pos ; i--){
         polygons[i]=polygons[i-1];
-    polygons[pos] = p ;
-
-
-}
-void polygonarray::resize(int newsize){
-    polygon *pts = new polygon[newsize];
-    int minsize =(newsize>size)?size:newsize;
-    for(int i=0;i<minsize;i++)
-        pts[i]=polygons[i];
-            delete[] polygons;
-            size = newsize;
-            polygons = pts;
+    }
+    polygons[pos]=p;
 
 }
 
-voidPointArray :: push_back(constPoint&p){
-resize(size+1);
-points[size- 1]=p;
-}
-
-void polygonarray::clear()
+void PolygonArray::push_back(const Polygon &p)
 {
-    resize(o);
-
-int polygonarray::getsize()
-{
-return size;
+    resize(size+1);
+    polygons[size-1]=p;
 }
 
-polygon::~polygon()
+void PolygonArray::remove(const int pos)
+{
+    for(int i=pos; i<size-1 ; i++)
+        polygons[i]=polygons[i++];
+    resize(size-1);
+}
+
+PolygonArray::~PolygonArray()
 {
     delete[] polygons;
 }
-
-
-
-
-
-
-
-
 
 
 
