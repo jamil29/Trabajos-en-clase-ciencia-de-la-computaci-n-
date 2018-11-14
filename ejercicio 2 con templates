@@ -195,7 +195,7 @@ using namespace std;
 int main()
 {
 
-    Point <int>a (1,2);
+    Point <int , int>a (1,2);
 //    cout << print<int> (1,2) << endl;
     return 0;
 }
