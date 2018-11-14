@@ -1,0 +1,141 @@
+main()
+
+#include <iostream>
+#include "polygonarray.h"
+
+using namespace std;
+
+int main()
+{
+    polygon p(1,3);
+    polygon q(3,3);
+    polygon r(3,1);
+    polygon arr[]={p,q,r};
+    int size = sizeof(arr)/sizeof(arr[0]);
+    polygon pa2(arr,size);
+    polygon pa=pa2;
+    cout<<pa.getsize()<<endl;
+    pa.clear();
+    cout<<pa.getsize()<<endl;
+
+    return 0;
+
+}
+
+.h()
+
+
+#ifndef POINT _H
+#define POINT _H
+
+
+using namespace std;
+
+template <typename t>
+
+class polygon {
+    t x,y;
+
+public:
+    Polygon(t xx=0,t yy=0){x= xx ; y= yy;};
+        int getX()const{return x;};
+        int getY()const{return y;};
+        void setX(const t xx){x=xx;};
+        void setY(const t yy){y=yy;};
+
+ };
+
+template<class u>
+
+class pointarray
+{
+    int size;
+    polygon *polygons;
+    void resize(u size);
+
+    public:
+
+        pointarray();
+        pointarray(const polygon pts[],const u size);
+        pointarray(polygonarray &o);
+        ~pointarray();
+
+        void print();
+        void insert(const u pos , const polygon &p);
+        void remove(const u pos);
+        void clear();
+        void push_back(const point &p)
+
+
+};
+
+#endif // POINT _H
+
+
+.cpp()
+
+
+include <iostream>
+#include "polygonarray.h"
+using namespace std;
+
+
+polygonarray::polygonarray()
+{
+        this->size = 0;
+        this->polygons = new polygon[size];
+}
+
+polygonarray::polygonarray(const polygon pts[],const u size;)
+{
+    this->size = size;
+    this->polygons = new polygon[size];
+    for(int i=0; i<size ;i++)
+        polygons[i]= pts[i];
+}
+
+ polygonarray::printarray(pointarray &o)
+{
+   this->size = o.size;
+   this->polygons = new polygon[size];
+   for(int i=0; i<size;i++)
+    polygons[i] =o.polygons[i];
+}
+template<class u> void polygonarray<u>::insert(const int pos, const polygon &p){
+    resize(resize +1);
+    for(int i=size-1;i<pos;i--)
+        polygons[i]=polygons[i-1];
+    polygons[pos] = p ;
+
+
+}
+template<class u> void polygonarray<u>::resize(int newsize){
+    polygon *pts = new polygon[newsize];
+    int minsize =(newsize>size)?size:newsize;
+    for(int i=0;i<minsize;i++)
+        pts[i]=polygons[i];
+            delete[] polygons;
+            size = newsize;
+            polygons = pts;
+
+}
+
+template<u> void PointArray<u> :: push_back(constPoint&p){
+resize(size+1);
+points[size- 1]=p;
+}
+
+template<u> void polygonarray<u>::clear()
+{
+    resize(o);
+
+template<u> int polygonarray<u>::getsize()
+{
+return size;
+}
+
+polygon::~polygon()
+{
+    delete[] polygons;
+}
+
