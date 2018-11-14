@@ -1,150 +1,201 @@
+#include "PointArray.h"
+#include "Point.h"
 #include <iostream>
-#include "pointarray.h"
+
 using namespace std;
 
-template<typename t >
-pointarray<t>::pointarray()
+template<class T>
+PointArray<T>::PointArray()
 {
-        this->size = 0;
-        this->points = new point[size];
+    this->size=0;
+    this->points=new Point<T>[size];
 }
-template<typename t>
-pointarray<t>::pointarray(t point pts[],const int size;)
-{
-    this->size = size;
-    this->points = new point[size];
-    for(int i=0; i<size ;i++)
-        points[i]= pts[i];
-}
-template<typename t>
- pointarray<t>::printarray(pointarray &o)
-{
-   this->size = o.size;
-   this->points = new point[size];
-   for(int i=0; i<size;i++)
-    points[i] =o.points[i];
-}
-template<typename t>
-void pointarray<t>::insert(t const  pos, t const point &p){
-    resize(resize +1);
-    for(int i=size-1;i<pos;i--)
-        points[i]=points[i-1];
-    points
-}
-template<typename t>
-void pointarray<t>::resize(int newsize){
 
-    point *pts = new point[newsize];
-    int minsize =(newsize>size)?size:newsize;
-    for(int i=0;i<minsize;i++)
-        pts[i]=points[i];
-            delete[] points;
-            size = newsize;
-            points = pts;
-}
-template<typename t>
-void pointarray<t>::clear()
+template<class T>
+PointArray<T>::PointArray(const Point<T> pts[], const int size)
 {
-    resize(o);
-template<typename t>
-int pointarray<t>::getsize()
-{
-return size;
+    this->size=size;
+    this->points=new Point<T>[size];
+    for(int i=0; i<size; i++)
+        points[i]=pts[i];
 }
-point::~point()
+
+template<class T>
+PointArray<T>::PointArray(PointArray<T> &o)
+{
+    this->size=o.size;
+    this->points=new Point<T>[o.size];
+    for(int i=0; i<size ; ++i)
+        points[i]=o.points[i];
+}
+
+template<class T>
+void PointArray<T>::resize(int newSize){
+    Point<T> *pts = new Point<T>[newSize];
+    int minsize = (newSize > size) ? size : newSize;
+    for(int i=0; i<minsize ; i++)
+        pts[i] = points[i];
+    delete[] points;
+    size = newSize;
+    points = pts;
+}
+
+template<class T>
+void PointArray<T>::push_back(const Point<T> &p){
+    resize(size + 1);
+    points[size - 1] = p;
+}
+
+template<class T>
+void PointArray<T>::insert(const int pos, const Point<T> &p){ //posición que quieres insert
+    resize(size + 1);
+    for(int i=size-1; i>pos ; i--)
+        points[i]=points[i-1];
+    points[pos]=p;
+}
+
+template<class T>
+void PointArray<T>::remove(const int pos){
+    for(int i=pos; i<size-1 ; i++)
+        points[i]=points[i+1];
+    resize(size-1);
+
+
+}
+
+template<class T>
+int PointArray<T>::getSize()
+{
+    return size;
+}
+
+template<class T>
+void PointArray<T>::print(){
+    for(int i=0; i<size; i++)
+        points[i].print();
+}
+
+template<class T>
+PointArray<T>::~PointArray()
 {
     delete[] points;
 }
 
+#include "Point.h"
+#include <iostream>
 
-
-
-
-#ifndef POINT _H
-#define POINT _H
 using namespace std;
 
-template<class t>
-class pointarray
+template<class T>
+Point<T>::Point(T xh, T yh)
 {
-    public:
-        pointarray();
-        pointarray(const  t point  pts[],const int size);
-        pointarray(pointarray &o);
-        ~pointarray();
-
-        t print();
-        int getsize();
-        t clear();
-
-    private:
-        t size;
-        point *points;
-        void resize(int);
-};
-#endif // POINT _H
-template<typename t>
-class point
-{
-    public:
-        point ();
-        point(t,t);
-        void print();
-        point(point &o);
-        void offset(t,t);
-
-    private:
-        double x,y;
-};
-
-#include <iostream>
-#include "point .h"
-
-template<t>
-template<typename t>
-point<t> ::point (int xh, int yh)
-{
-        x= xh;
-
-        y= yh;
+    x=xh;
+    y=yh;
 }
-template<typename t>
-point<t> ::point ()
+
+template<class T>
+Point<T>::Point()
 {
     x=0;
     y=0;
 }
-template<typename t>
-void point<t>::print()
+
+template<class T>
+Point<T>::Point(Point<T> &o)
 {
-    std::cout<<"("<<x<<","<<y<<")"<<std::endl;
-}
-template<typename t>
-point<t>::point(point &o){
-    x=o.y;
-    y=o.x;
-
-}
-template<typename t>
-void point<t>::offset(int nx,int ny){
-x +=nx;
-y +=ny;
+    x=o.x;
+    y=o.y;
 }
 
+template<class T>
+void Point<T>::print()
+{
+    std::cout << "(" << x << "," << y << ")" << std::endl;
+}
+
+template<class T>
+void Point<T>::offset(T nx, T ny)
+{
+    x+=nx;
+    y+=ny;
+}
+
+
+
+
+
+
+
+
+
+#ifndef POINT_H
+#define POINT_H
+
+template<class T>
+class Point
+{
+    public:
+        Point();
+        Point(Point<T> &o);
+        Point(T,T);
+        void offset(T,T);
+        void print();
+
+    private:
+        T x,y;
+};
+
+#endif // POINT_H
+
+
+
+
+
+
+
+#ifndef POINTARRAY_H
+#define POINTARRAY_H
+
+#include "Point.h"
+
+template<class T>
+class PointArray
+{
+    public:
+        PointArray();
+        PointArray(const Point<T> pts[], const int size);
+        PointArray(PointArray<T> &o);
+        ~PointArray();
+
+        void print();
+        int getSize();
+        void push_back(const Point<T> &p);
+        void insert(const int , const Point<T> &p);
+        void remove(const int);
+
+    private:
+        int size;
+        Point<T> *points;
+        void resize(int newSize);
+};
+#endif // POINTARRAY_H
+
+
+
+
+
+
+#include "Point.h"
+#include "PointArray.h"
 #include <iostream>
-#include "point.h"
-#include "pointarray.h"
+#include <cctype>
 
 using namespace std;
 
-
-
 int main()
 {
-    point<int,int> p(5,4);  
-    point<int,int> q(10,23);
-    pointarray<char>={p,q}
-    
-    return 0;
 
+    Point <int>a (1,2);
+//    cout << print<int> (1,2) << endl;
+    return 0;
 }
