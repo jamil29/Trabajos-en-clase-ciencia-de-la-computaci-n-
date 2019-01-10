@@ -1,0 +1,259 @@
+#include <iostream>
+using namespace std; 
+
+ void val16(){
+ 	cout<<"dame dos numeros"<<endl;
+ 	int x,y;
+ 	cin>>x;
+ 	cin>>y;
+ 	
+ 	int suma,resta,multiplicacion,division;
+ 	suma = x+y;
+ 	resta = x-y;
+ 	multiplicacion = x*y;
+ 	division = x/y;
+ 	cout<<"la suma es :"<< suma<<endl;
+ 	cout<<"la resta es :"<< resta<<endl;
+ 	cout<<"la multiplicacion es :"<< multiplicacion<<endl;
+ 	cout<<"la division es :"<< division<<endl;
+ }
+ 
+ void val17(){
+ 	cout<<1<<" "<<2<<" "<<3<<" "<<4<<endl;
+ 	cout<<"1\t\2\t3\t4"<<endl;
+ 	
+ 	
+	}
+	
+ void val18(){
+ 	int x,y;
+ 	cin>>x>>y;
+ 	
+ 	if(x>y)
+ 		cout<<x<<" es el numero mas grande";
+ 	else
+ 		cout<<y<<" es el numero mas grande";
+ 	
+ 	
+	}
+	void val19(){
+		int x,y,z,suma,promedio,producto,menor,mayor;
+		cout<<"introduzca 3 numeros enteros : "<<endl;
+		cin>>x>>y>>z;
+		suma = x+y+z;
+		promedio = suma/3;
+		
+		cout<<"suma : "<<suma<<endl;
+		cout<<"promedio : "<<promedio<<endl;
+		
+		if((x>y)and(x>z))
+			cout<<"el numero mayor es : "<<x<<endl;
+		if((y>x)and(y>z))
+			cout<<"el numero mayor es : "<<y<<endl;
+		if((z>x)and(z>y))
+			cout<<"el numero mayor es : "<<z<<endl;
+			
+		if((x<y)and(x<z))
+			cout<<"el numero menor es : "<<x<<endl;
+		if((y<x)and(y<z))
+			cout<<"el numero menor es : "<<y<<endl;
+		if((z<x)and(z<y))
+			cout<<"el numero menor es : "<<z<<endl;
+		
+		
+	}
+	void val20(){
+		int radio,diametro,circunferencia,area;
+		double pi;
+		pi=3.1415;
+		
+		cout<<"introduzca el radio del circulo : "<<endl;
+		cin>>radio;
+		diametro=2*radio;cout<<"el diametro es : "<<diametro<<endl;
+		circunferencia=pi*diametro;cout<<"la circunferencia es : "<<circunferencia<<endl;
+		area=pi*(radio*radio);cout<<"el area del circulo es : "<<area<<endl;
+		
+	}
+	void val21(){
+		
+		cout<<" *********    ***      *       *    \n";
+		cout<<" *       *  *     *   *** 	 		* *   \n";
+		cout<<" *       * *       * ***** 		*   *  \n";
+		cout<<" *							* *       * 		*   	*     * \n";
+		cout<<" *							* *       * 		*   *       *\n";
+		cout<<" *       * *       * 		*    *     * \n";
+		cout<<" *       * *       *	 	*     *   *  \n";
+		cout<<" *       *	 *     * 	 	*  		 	* *   \n";
+		cout<<" *********		 	***   	 	*       *    \n";
+		
+	}
+	void val22(){
+			
+			cout <<" * \n ** \n *** \n **** \n *****" << endl;
+		
+	}
+	
+ void val23(){
+ 		
+ 	
+ 	int v1,v2,v3,v4,v5;
+ 	cout<<"introduzco 5 numeros : "<<endl;
+ 	cin>>v1>>v2>>v3>>v4>>v5;
+ 	
+ 	int valores[]{v1,v2,v3,v4,v5};
+ 		int mayor,menor;
+				mayor=0;
+				
+				
+ 	for(int i=0;i<=4;i++){
+				
+				if(valores[i]>=mayor){
+						mayor=valores[i];
+						
+				}
+		}
+		
+ 	cout<<"el valor mayor es : "<<mayor<<endl;
+ 	
+ 	menor = mayor;
+ 	
+ 	for(int i=0;i<=4;i++){
+				
+				if(valores[i]<=menor){
+						menor=valores[i];
+						
+				}
+		}
+ 	
+ 	cout<<"el valor menor es : "<<menor<<endl;
+ 	
+	}
+	
+	
+	void val24(){
+		int valor;
+		cout<<"dame un numero : "<<endl;
+		cin>>valor;
+		if(valor%2==0){
+		
+				cout<<"es un numero par"<<endl;
+				}
+				else 
+				cout<<"es un numero impar"<<endl;
+	}
+	
+	
+	void val25(){
+		int x,y;
+		cin>>x>>y;
+		
+		if(x%y==0){
+			cout<<x<<" es multiplo de :"<<y<<endl;
+			
+			}
+			else
+				cout<<x<<" no es multiplo de : "<<y<<endl;
+		
+	}
+	void val26(){
+		
+		cout<<"********"<<endl;
+		cout<<" ********"<<endl;
+		cout<<"********"<<endl;
+		cout<<" ********"<<endl;
+		cout<<"********"<<endl;
+		cout<<" ********"<<endl;
+		cout<<"********"<<endl;
+		cout<<" ********"<<endl;
+		
+	}
+	void val27(){
+		char val;
+		cin>>val;
+		
+		cout<<static_cast<int>(val);
+	}
+	 
+																					//12345
+
+	void val28(){
+		int val;
+		cout<<"vame un numero de 5 digitos "<<endl;
+		cin>>val;
+		
+		int v1,v2,v3,v4,v5;
+		v1=val/10000;
+		val=val%10000;
+		v2=val/1000;
+		val=val%1000;
+		v3=val/100;
+		val=val%100;
+		v4=val/10;
+		val=val%10;
+		v5=val/1;
+		
+		cout<<v1<<"   "<<v2<<"   "<<v3<<"   "<<v4<<"   "<<v5;
+	}
+	
+	void val29(){
+		cout<<" entero "<<" cuadrado "<<" cubo "<<endl;
+		for(int i=0;i<=10;i++){
+				cout<<i<<"         "<<i*i<<"         "<<i*i*i<<endl;
+		}
+	}
+	
+	
+	
+	void val30(){
+		cout<<"BMI VALUES!!!!"<<endl;
+		float peso,altura;
+		cout<<"cual es su peso actual en kilogramos : "<<endl;
+		cin>>peso;
+		cout<<"cual es su altura actual en metros : "<<endl;
+		cin>>altura;
+		float bmi;
+		bmi=peso/(altura*altura);
+		cout<<"your bmi is "<<bmi<<endl ;
+		cout<<"normal : 18.5 and 24.9 "<<endl;
+		cout<<"exceso de peso :  25 and 29.9"<<endl;
+		cout<<"sobrepeso : mas de 30 "<<endl;
+		
+	}
+	
+	void val31(){
+		int gasolina,promedio,aparcamiento,peaje,ahorro;
+		
+	
+		cout<<"cuanto es el costo de gasolina por tu zona(dolares)?"<<endl;
+		cin>>gasolina;
+		cout<<"promedio de millas por galon?"<<endl;
+		cin>>promedio;
+		cout<<"aproximado de tarifas de aparcamiento por dia ?"<<endl;
+			cin>>aparcamiento;
+		cout<<"costo total por peajes por dia ?"<<endl;
+		cin>>peaje;
+		
+		ahorro=(promedio*gasolina)+aparcamiento+peaje;
+		cout<<"el costo diario es de : "<<ahorro<<" dolares";
+		
+	}
+ int main(){
+ 	
+ 	//val16();
+ 	//Val17();
+ 	//val18();
+ 	//val19();
+ 	//val20();
+ 	//val21();
+ 	//val22();
+ 	//val23();
+ 	//val24();
+ 	//val25();
+ 	//val26();
+ 	//val27();
+ 	//val28();
+ 	//val29();
+ 	//val30();
+ 	//val31();
+ 	return 0;
+ }
