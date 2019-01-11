@@ -90,16 +90,12 @@ void val28(){
 	}
 }
 
-void val30(){
-	int val;
-	cout<<"vame un numero de 5 digitos "<<endl;
-	cin>>val;
-	
+void val30(int val){
 	int v1,v2,v3,v4,v5;
 	v1=val/10000;
 	val=val%10000;
 	v2=val/1000;
-	val=val%1000;
+	val=val%1000; 
 	v3=val/100;
 	val=val%100;
 	v4=val/10;
@@ -110,10 +106,7 @@ void val30(){
 	
 }
 
-void val32(){
-	int x;
-	cout<<"dame el promedio de la malla"<<endl;
-	cin>>x;
+void val32(int x){
 	if(x>=90 and x<=100){
 		cout<<"4";
 	}
@@ -136,11 +129,9 @@ int aleatorioEntero(int a, int b){
 	return  a+rand()%(b-a+1);
 }
 
-void val34(){
-	int x,t;
+void val34(int t){
+	int x;
 	x=aleatorioEntero(1,1000);
-	
-	cin>>t;
 	if(t==x){
 		cout<<"felicidades encontraste el numero"<<endl;
 		
@@ -180,6 +171,38 @@ void val38(int num,char A,char C,char B)
 	}
 }
 
+bool perfecto_recursivo(int n,int i,int c){
+	int b=i;
+	if(b<n)
+	{
+		if(n%b==0)
+		{
+		perfecto_recursivo(n,i+1,c+b);
+		}
+		else{
+		
+		perfecto_recursivo(n,i+1,c);
+		}
+	}
+
+	else{
+		if(n==c)return true;
+		else return false;
+	}
+}
+	
+	void val40(){
+		for(int i=1;i<=1000;i++){
+			if(perfecto_recursivo(i,1,0)){
+				cout<<i<<" ";
+			}
+		}
+			
+		
+	}
+	
+
+
 
 int main(){
 	
@@ -188,12 +211,14 @@ int main(){
 	//val24(12345);
 	//val26();
 	//val28();
-	//val30();
-	//val32();
-	//val34();
+	//val30(12345);
+	//val32(12);
+	//val34(23);
 	//cout<<val36(4,3);
 	//v
-	/*int n;
+	
+	/*
+	int n;
 	char A,B,C;
 	
 	cout<<"Los clavijas son A B C\n";
@@ -205,5 +230,3 @@ int main(){
 	return 0;
 	
 }
-
-
