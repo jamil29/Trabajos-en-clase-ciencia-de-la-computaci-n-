@@ -6,24 +6,18 @@ using namespace std;
 	using namespace std;
 
 
-bool val20(){
-	int x,y;
-	cout<<"introduzca dos valores"<<endl;
-	cin>>x>>y;
+bool val20(int x,int y){
 	
 	if(x%y==0){
-		cout<<"verdadero"<<endl;
+		return true;
 	}
 	else	
-	   cout<<"falso"<<endl;
+	   return false;
 	
 	
 }
 
-void val22(){
-	int x;
-	cout<<"el tamaño del lado es : "<<endl;
-	cin>>x;
+void val22(int x){
 	
 	for(int i=0;i<x;i++){
 		for(int y=0;y<x;y++){
@@ -34,11 +28,8 @@ void val22(){
 }
 
 
-void val24(){
+void val24(int val){
 	
-	int val;
-	cout<<"vame un numero de 5 digitos "<<endl;
-	cin>>val;
 	
 	int v1,v2,v3,v4,v5;
 	v1=val/10000;
@@ -188,33 +179,31 @@ void val38(int num,char A,char C,char B)
 		val38(num-1,B,C,A);
 	}
 }
-bool perfect_bool(int a){
-	int num;
-	
-}
+
 
 int main(){
 	
-	//val20();
-	//val22();
-	//val24();
+	//cout<<val20(4,2);
+	//val22(4);
+	//val24(12345);
 	//val26();
 	//val28();
 	//val30();
 	//val32();
 	//val34();
 	//cout<<val36(4,3);
-	
-	int n;
+	//v
+	/*int n;
 	char A,B,C;
 	
 	cout<<"Los clavijas son A B C\n";
 	cout<<"Numero de discos: ";
 	cin>>n;
 	val38(n,'A','C','B');
-	   
+	*/
 	//val40();
 	return 0;
 	
 }
+
 
