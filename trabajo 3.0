@@ -9,7 +9,7 @@ void swap(int &x,int &y){
 }
 
 void ordenar(int n[],int cn){
-		for(int i=1;i<cn;i++)
+for(int i=1;i<cn;i++)
     {
         for(int j=0;j<cn-i;j++)
         {
