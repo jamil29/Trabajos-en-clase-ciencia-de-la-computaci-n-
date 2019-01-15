@@ -1,0 +1,101 @@
+#include<iostream>
+using namespace std;
+
+void swap(int &x,int &y){
+	int z;
+	z=x;
+	x=y;
+	y=z;
+}
+
+void ordenar(int n[],int cn){
+		for(int i=1;i<cn;i++)
+    {
+        for(int j=0;j<cn-i;j++)
+        {
+            if(n[j]>n[j+1])
+            {
+            swap(n[j],n[j+1]);
+												}
+        }
+    }
+}
+
+void voltear(int arr[],int tam)
+{
+	for(int i=0;i<tam/2;i++){
+		swap(arr[i],arr[tam-i-1]);
+		
+	}	
+	
+}
+
+bool palindrome(const int arr[],const int tam){
+	int cont;
+	for(int i=0;i<tam/2;i++){
+		if(arr[i]==arr[tam-i-1])
+			cout<<cont<<endl;
+			cont++;
+	}
+	if(cont==tam/2){
+		return true;
+	}
+	else{
+		return false;
+	}
+}
+
+
+
+int esprimo(int num){
+	int i;
+	for(i=2;i<num;i++)
+		if(num%i==0)return 0;
+	
+		return 1;
+	
+}
+
+
+int numeroprim( int arr[], int n){
+	int cont=0;
+	for(int i=0;i<n;i++){
+		if(esprimo(arr[i])){
+					++cont;
+		}
+	}
+	return cont;
+}
+
+
+
+
+void imprimir(int arr[],int tam){
+	for(int i=0;i<tam;i++){
+		cout<<arr[i]<<"  ";
+	}
+}
+
+
+
+int main(){
+	
+	int val[]={5,13,3,2,1};
+	int tam=5;
+	
+	/*ordenar(val,tam);
+	imprimir(val,tam);
+	*/
+	
+	/*voltear(val,tam);
+	imprimir(val,tam);
+	*/
+	
+	//cout<<palindrome(val,tam);
+	
+	
+	//cout<<esprimo(13);
+	cout<<numeroprim(val,tam);
+	
+	return 0;
+}
