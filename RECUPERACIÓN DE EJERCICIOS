@@ -73,22 +73,20 @@ x=*ptr;
 }
 
 */
-
-void ordenarchar(char **ptr,int tam){
-	for(int i=0;i<tam;i++){
-		for(int j=0;j<tam-1;j++){
-			int i=static_cast<int>(**ptr);
-			int k=static_cast<int>(**(ptr+1));
-			if(i>k){
-				int val;
-				val=**ptr;
-				**ptr=**(ptr+1);
-				**(ptr+1)=val;
-			}
-			ptr++;
+void maximo(char z[][3],int len){
+	for (int i=0;i<len;i++){
+		int x=static_cast<int>(z[i][0]);
+		int y=static_cast<int>(z[i+1][0]);
+		if(x>y){
+			char x;
+			z[i][0]=z[i+1][0];
+			z[i+1][0]=x;
 		}
+	
 	}
 }
+
+
 
 int main() {
 	
@@ -116,15 +114,11 @@ int main() {
 	cout<<funcionchar(ptr2,5);
 	
 	*/
-
-	/*char nombres[4][20] ={{"dcba"},{"abcd"},{"dcba"},{"dcba"},};//cadena 
-	char *ptr=nombres;
-	char **super=ptr;
-	
-	ordenarchar(super,4);
-	for(int i=0;i<4;i++){
-		for(int e=0;e<4;e++){
-			cout<<nombres[i][e];
+	char val[4][20]={{"hola1"},{"hola2"},{"hola3"},{"hola4"}};
+	maximo(val[][3],4);
+	for(int i=0;i<4;++i){
+		for(int e=0; e <5;++e){
+			cout<<val[i][e];
 		}
 		cout<<endl;
 	}
