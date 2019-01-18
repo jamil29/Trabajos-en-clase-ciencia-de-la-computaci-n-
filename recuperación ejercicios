@@ -45,6 +45,17 @@ bool funcion(int *s,int tam){
 	
 }
 
+bool funcionchar(char *s,int tam){
+	if(*s==*(s+(tam-1))){
+		return true;
+	}
+	else{
+		return false;
+	}
+	return funcionchar(s++,tam--);
+	
+}
+
 /////////////////////////////////////////////////////////
 
 /*int convertir(char *ptr){
@@ -100,7 +111,13 @@ int main() {
 	cout<<funcion(ptr,5);
 	
 	*/
+	// palindrome char 
+	/*
+	char val[]="12321";
+	char *ptr2=val;
+	cout<<funcionchar(ptr2,5);
 	
+	*/
 	/*char val[]={"dcba"};//cadena 
 	
 	char *ptr=val;
