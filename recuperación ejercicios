@@ -1,0 +1,115 @@
+#include <iostream>
+using namespace std;
+
+///////////////////////////////////////////////////////////////////////////////////////////
+bool par(int n){
+	if(n%2==0){
+		return 1;
+	}
+	return 0;
+}
+	
+void numerospares(int n){
+	for(int i=2;i<n;i++){
+		if(i==n-2){
+			cout<<i+1<<" ";
+			break;
+		}
+		if(par(i)){
+			cout<<i<<" , ";
+		}
+	}
+}
+/////////////////////////////////////////////////////////////////////
+// enteros 
+
+int sumatoria(int *s,int tam){
+	if(tam==0)
+		return s[tam];
+	else{
+		tam--;
+		return s[tam+1] + sumatoria(s,tam);
+	}
+	
+}
+
+
+//////////////////////////////////////////////////
+bool funcion(int *s,int tam){
+	if(*s==*(s+(tam-1))){
+		return true;
+	}
+	else{
+		return false;
+	}
+	return funcion(s++,tam--);
+	
+}
+
+/////////////////////////////////////////////////////////
+
+/*int convertir(char *ptr){
+	int n;
+	n=static_cast<int>(*ptr);
+	
+	return n;
+	
+}
+int swap(int *ptr, int *ptr2){
+	int x;
+	x=*ptr;
+	*ptr=*ptr2;
+	*ptr2=x;
+}
+
+*/
+
+void ordenar(char *ptr,int tam){
+	for(int i=0;i<tam;i++){
+		for(int j=0;j<tam-1;j++){
+			int i=static_cast<int>(*ptr);
+			int k=static_cast<int>(*(ptr+1));
+			if(i>k){
+				int val;
+				val=*ptr;
+				*ptr=*(ptr+1);
+				*(ptr+1)=val;
+			}
+			ptr++;
+		}
+	}
+}
+
+int main() {
+	
+	//numerospares(7);
+	
+	
+	/*int arr[]={100,1,1,1,1};
+	int *ptr=arr;
+	cout<<sumatoria(ptr,5);
+	*/
+	
+	/*int arr[]={1,2,3,4};
+	cout<<arr;
+	*/
+	
+	//palindrome 
+	
+	/*int val[]={1,2,3,2,1};
+	int *ptr=val;
+	cout<<funcion(ptr,5);
+	*/
+	
+	
+	/*char val[]={"dcba"};//cadena 
+	
+	char *ptr=val;
+	ordenar(val,4);
+	cout<<val;
+	*/
+	char val[]="hola " "holaaa";
+	cout<<val;
+	
+	return 0;
+}
