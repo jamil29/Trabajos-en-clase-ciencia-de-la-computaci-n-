@@ -74,16 +74,16 @@ x=*ptr;
 
 */
 
-void ordenar(char *ptr,int tam){
+void ordenarchar(char **ptr,int tam){
 	for(int i=0;i<tam;i++){
 		for(int j=0;j<tam-1;j++){
-			int i=static_cast<int>(*ptr);
-			int k=static_cast<int>(*(ptr+1));
+			int i=static_cast<int>(**ptr);
+			int k=static_cast<int>(**(ptr+1));
 			if(i>k){
 				int val;
-				val=*ptr;
-				*ptr=*(ptr+1);
-				*(ptr+1)=val;
+				val=**ptr;
+				**ptr=**(ptr+1);
+				**(ptr+1)=val;
 			}
 			ptr++;
 		}
@@ -94,23 +94,21 @@ int main() {
 	
 	//numerospares(7);
 	
-	
-	/*int arr[]={100,2,3,1,5};
+	/*
+	int arr[]={100,2,3,1,5};
 	int *ptr=arr;
 	cout<<sumatoria(ptr,5);
 	*/
 	
-	/*int arr[]={1,2,3,4};
-	cout<<arr;
-	*/
-	
 	//palindrome 
+	
 	/*
 	int val[]={1,2,3,2,1};
 	int *ptr=val;
 	cout<<funcion(ptr,5);
-	
 	*/
+	
+	
 	// palindrome char 
 	/*
 	char val[]="12321";
@@ -118,14 +116,19 @@ int main() {
 	cout<<funcionchar(ptr2,5);
 	
 	*/
-	/*char val[]={"dcba"};//cadena 
+
+	/*char nombres[4][20] ={{"dcba"},{"abcd"},{"dcba"},{"dcba"},};//cadena 
+	char *ptr=nombres;
+	char **super=ptr;
 	
-	char *ptr=val;
-	ordenar(val,4);
-	cout<<val;
+	ordenarchar(super,4);
+	for(int i=0;i<4;i++){
+		for(int e=0;e<4;e++){
+			cout<<nombres[i][e];
+		}
+		cout<<endl;
+	}
 	*/
-	//char val[]="hola " "holaaa";
-	//cout<<val;
 	
 	return 0;
 }
