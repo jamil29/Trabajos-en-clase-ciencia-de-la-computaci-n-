@@ -8,7 +8,7 @@ bool par(int n){
 	}
 	return 0;
 }
-	
+
 void numerospares(int n){
 	for(int i=2;i<n;i++){
 		if(i==n-2){
@@ -21,16 +21,15 @@ void numerospares(int n){
 	}
 }
 /////////////////////////////////////////////////////////////////////
+
 // enteros 
 
 int sumatoria(int *s,int tam){
 	if(tam==0)
-		return s[tam];
+		return 0;
 	else{
-		tam--;
-		return s[tam+1] + sumatoria(s,tam);
+		return s[tam-1] + sumatoria(s,tam-1);
 	}
-	
 }
 
 
@@ -49,17 +48,17 @@ bool funcion(int *s,int tam){
 /////////////////////////////////////////////////////////
 
 /*int convertir(char *ptr){
-	int n;
-	n=static_cast<int>(*ptr);
-	
-	return n;
-	
+int n;
+n=static_cast<int>(*ptr);
+
+return n;
+
 }
 int swap(int *ptr, int *ptr2){
-	int x;
-	x=*ptr;
-	*ptr=*ptr2;
-	*ptr2=x;
+int x;
+x=*ptr;
+*ptr=*ptr2;
+*ptr2=x;
 }
 
 */
@@ -85,7 +84,7 @@ int main() {
 	//numerospares(7);
 	
 	
-	/*int arr[]={100,1,1,1,1};
+	/*int arr[]={100,2,3,1,5};
 	int *ptr=arr;
 	cout<<sumatoria(ptr,5);
 	*/
@@ -95,12 +94,12 @@ int main() {
 	*/
 	
 	//palindrome 
-	
-	/*int val[]={1,2,3,2,1};
+	/*
+	int val[]={1,2,3,2,1};
 	int *ptr=val;
 	cout<<funcion(ptr,5);
-	*/
 	
+	*/
 	
 	/*char val[]={"dcba"};//cadena 
 	
@@ -108,8 +107,8 @@ int main() {
 	ordenar(val,4);
 	cout<<val;
 	*/
-	char val[]="hola " "holaaa";
-	cout<<val;
+	//char val[]="hola " "holaaa";
+	//cout<<val;
 	
 	return 0;
 }
