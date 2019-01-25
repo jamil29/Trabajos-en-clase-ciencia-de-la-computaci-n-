@@ -1,0 +1,188 @@
+#include <iostream>
+using namespace std;
+
+class uscurrency {
+public:
+    int dollar, cent;
+    uscurrency(const int dollar, const int cent)
+    {
+        this->dollar = dollar;
+        this->cent = cent;
+    }
+};
+
+uscurrency operator +(const uscurrency &m,const uscurrency &o)
+{
+        uscurrency tmp = {0, 0};
+        tmp.cent = m.cent + o.cent;
+        tmp.dollar = m.dollar+ o.dollar;
+
+        if(tmp.cent >= 100) {
+         tmp.dollar += 1;
+         tmp.cent -= 100;
+        }
+        return tmp;
+}
+uscurrency operator -(const uscurrency &m,const uscurrency &o)
+{
+        uscurrency tmp = {0, 0};
+        tmp.cent = m.cent - o.cent;
+        tmp.dollar = m.dollar- o.dollar;
+
+        return tmp;
+}
+
+
+uscurrency operator +=(const uscurrency &m,int val)
+{
+        uscurrency tmp = {0, 0};
+        tmp.dollar = m.dollar+ val;
+
+        return tmp;
+}
+uscurrency operator -=(const uscurrency &m,int val)
+{
+        uscurrency tmp = {0, 0};
+        tmp.dollar = m.dollar- val;
+
+        return tmp;
+}
+
+
+ostream& operator << (ostream &o,const uscurrency &p)
+{
+    o << "$" << p.dollar << "," << p.cent << endl;
+    return o;
+}
+
+#include <iostream>
+
+using namespace std;
+
+template <typename T>
+class Point {
+    T x, y;
+public:
+    Point(const T a = 0, const T b = 0) : x(a), y(b) {}
+    T getX();
+};
+
+template <typename T>
+T Point<T>::getX() {
+    return x;
+}
+
+
+
+template <typename T>
+class DynamicArray {
+    T *data;
+    int size;
+public:
+    DynamicArray() {
+        data = new T[0];
+        this->size = 0;
+    }
+
+    DynamicArray(T arr[], int size) {
+        this->data = new T[size];
+        this->size = size;
+        for (int i = 0; i < size; ++i)
+            data[i] = arr[i];
+    }
+
+    DynamicArray(DynamicArray &o) {
+        data = new T[o.size];
+        size = o.size;
+        for (int i = 0; i < size; ++i)
+            data[i] = o.data[i];
+    }
+
+    void push_back(T val) {
+        this ->size = size+1;
+        T *arr = new T[size];
+
+        for(int i=0;i<size-1;++i){
+            arr[i]=data[i];
+        }
+        arr[size-1]=val;
+        delete[] data;
+        data = arr;
+    }
+
+    void insert(T val, int pos) {
+        this->size= size +1;
+        T *arr1 = new T[size];
+        for( int i = 0, j = 0; i < size ; i++, j++){
+            if ( i == pos ){
+                arr1[i] = val;
+                j--;
+            }
+            else
+                arr1[i]= data[j];
+        }
+        delete[] data;
+        data = arr1;
+    }
+
+    void remove(int pos) {
+        this->size--;
+        T *arr = new T[size];
+
+        for (int i=0, j=0; i<size; ++i, ++j)
+        {
+            if (i==pos) j++;
+            arr[i] = data[j];
+        }
+
+        delete[] data;
+        data = arr;
+    }
+
+    DynamicArray operator<<(ostream &o,const DynamicArray &p){
+        o<<p.data<<endl;
+        return o;
+    }
+
+    void print() {
+        for(int i =0; i < size; i++){
+            cout << data[i] << " ";
+        }
+        cout << endl;
+    }
+
+    int getSize() {
+        return size;
+    }
+
+    ~DynamicArray() {
+        delete[] data;
+    }
+};
+int main() {
+    int arr[] = {1,2,3,4,5};
+    DynamicArray<int> a(arr, 5);
+    a.push_back(6);
+    a.print();
+    a.insert(10,5);
+    a.print();
+    a.remove(5);
+    Point<int> arrPoints[2] = {Point<int>(2,3), Point<int>(4,5)};
+
+    DynamicArray<Point<int> > daPoints(arrPoints, 2);
+    Point<int> p(2,9);
+
+    daPoints.push_back(p);
+    daPoints.print();
+    //a.print();
+    //cout << a.getSize() << endl; // 4
+    uscurrency A(2, 75 );
+    uscurrency B(1, 50 );
+    uscurrency C = A - B;
+    C+=10;
+    cout << "A = " << A << "\n";
+    cout << "B = " << B << "\n";
+    cout << "C = " << C << "\n";
+
+    return 0;
+}
