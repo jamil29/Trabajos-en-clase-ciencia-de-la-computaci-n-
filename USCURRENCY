@@ -1,0 +1,68 @@
+#include <iostream>
+using namespace std;
+
+class uscurrency {
+public:
+    int dollar, cent;
+    uscurrency(const int dollar, const int cent)
+    {
+        this->dollar = dollar;
+        this->cent = cent;
+    }
+};
+
+uscurrency operator +(const uscurrency &m,const uscurrency &o)
+{
+        uscurrency tmp = {0, 0};
+        tmp.cent = m.cent + o.cent;
+        tmp.dollar = m.dollar+ o.dollar;
+
+        if(tmp.cent >= 100) {
+         tmp.dollar += 1;
+         tmp.cent -= 100;
+        }
+        return tmp;
+}
+uscurrency operator -(const uscurrency &m,const uscurrency &o)
+{
+        uscurrency tmp = {0, 0};
+        tmp.cent = m.cent - o.cent;
+        tmp.dollar = m.dollar- o.dollar;
+
+        return tmp;
+}
+
+
+uscurrency operator +=(const uscurrency &m,int val)
+{
+        uscurrency tmp = {0, 0};
+        tmp.dollar = m.dollar+ val;
+
+        return tmp;
+}
+uscurrency operator -=(const uscurrency &m,int val)
+{
+        uscurrency tmp = {0, 0};
+        tmp.dollar = m.dollar- val;
+
+        return tmp;
+}
+
+
+ostream& operator << (ostream &o,const uscurrency &p)
+{
+    o << "$" << p.dollar << "," << p.cent << endl;
+    return o;
+}
+int main()
+{
+    uscurrency A(2, 75 );
+    uscurrency B(1, 50 );
+    uscurrency C = A - B;
+    C+=10;
+    cout << "A = " << A << "\n";
+    cout << "B = " << B << "\n";
+    cout << "C = " << C << "\n";
+
+    return 0;
+}
