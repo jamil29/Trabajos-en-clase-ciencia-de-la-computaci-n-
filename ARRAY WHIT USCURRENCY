@@ -67,8 +67,10 @@ template <typename T>
 T Point<T>::getX() {
     return x;
 }
-
-
+template<typename t>
+t point<t>::gety(){
+    return x;
+}
 
 template <typename T>
 class DynamicArray {
