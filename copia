@@ -1,0 +1,658 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+template <class T>
+T partition(T arr[], int start, int end)
+{
+
+    T pivotValue = arr[start];
+    T pivotPosition = start;
+
+
+    for (int pos = start + 1; pos <= end; pos++)
+    {
+        if (arr[pos] < pivotValue)
+        {
+
+            swap(arr[pivotPosition + 1], arr[pos]);
+
+            swap(arr[pivotPosition], arr[pivotPosition + 1]);
+
+            pivotPosition ++;
+        }
+	}
+    return pivotPosition;
+}
+
+template <class T>
+T quickSort(T arr[], int start, int end)
+{
+    if (start < end)
+    {
+
+        int p = partition(arr, start, end);
+
+
+        quickSort(arr, start, p - 1);
+
+
+        quickSort(arr, p + 1, end);
+	}
+
+}
+
+
+int main()
+{
+    const int SIZE = 10;
+    int array[SIZE] = {100, 35, 7, 21, 89, 10, 148, 983, 33, 29};
+
+    for (int k = 0; k < SIZE; k++)
+        cout << array[k] << " ";
+    cout << endl;
+    quickSort(array, 0, SIZE-1);
+
+
+    for (int k = 0; k < SIZE; k++)
+        cout << array[k] << " ";
+    cout << endl;
+
+    return 0;
+}
+#include<iostream>
+using namespace std;
+
+void swap(int &x,int &y){
+	int z;
+	z=x;
+	x=y;
+	y=z;
+}
+
+void ordenar(int n[],int cn){
+		for(int i=1;i<cn;i++)
+    {
+        for(int j=0;j<cn-i;j++)
+        {
+            if(n[j]>n[j+1])
+            {
+            swap(n[j],n[j+1]);
+												}
+        }
+    }
+}
+
+void voltear(int arr[],int tam)
+{
+	for(int i=0;i<tam/2;i++){
+		swap(arr[i],arr[tam-i-1]);
+
+	}
+
+}
+
+bool palindrome(const int arr[],const int tam){
+	int cont;
+	for(int i=0;i<tam/2;i++){
+		if(arr[i]==arr[tam-i-1])
+			cout<<cont<<endl;
+			cont++;
+	}
+	if(cont==tam/2){
+		return true;
+	}
+	else{
+		return false;
+	}
+}
+
+
+
+int esprimo(int num){
+	int i;
+	for(i=2;i<num;i++)
+		if(num%i==0)return 0;
+
+		return 1;
+
+}
+
+
+int numeroprim( int arr[], int n){
+	int cont=0;
+	for(int i=0;i<n;i++){
+		if(esprimo(arr[i])){
+					++cont;
+		}
+	}
+	return cont;
+}
+
+
+
+
+void imprimir(int arr[],int tam){
+	for(int i=0;i<tam;i++){
+		cout<<arr[i]<<"  ";
+	}
+}
+
+
+
+int main(){
+
+	int val[]={5,13,3,2,1};
+	int tam=5;
+
+	/*ordenar(val,tam);
+	imprimir(val,tam);
+	*/
+
+	/*voltear(val,tam);
+	imprimir(val,tam);
+	*/
+
+	//cout<<palindrome(val,tam);
+
+
+	//cout<<esprimo(13);
+	cout<<numeroprim(val,tam);
+
+	return 0;
+}
+
+#include <iostream>
+using namespace std;
+
+class uscurrency {
+public:
+    int dollar, cent;
+    uscurrency(const int dollar, const int cent)
+    {
+        this->dollar = dollar;
+        this->cent = cent;
+    }
+};
+
+uscurrency operator +(const uscurrency &m,const uscurrency &o)
+{
+        uscurrency tmp = {0, 0};
+        tmp.cent = m.cent + o.cent;
+        tmp.dollar = m.dollar+ o.dollar;
+
+        if(tmp.cent >= 100) {
+         tmp.dollar += 1;
+         tmp.cent -= 100;
+        }
+        return tmp;
+}
+uscurrency operator -(const uscurrency &m,const uscurrency &o)
+{
+        uscurrency tmp = {0, 0};
+        tmp.cent = m.cent - o.cent;
+        tmp.dollar = m.dollar- o.dollar;
+
+        return tmp;
+}
+
+
+uscurrency operator +=(const uscurrency &m,int val)
+{
+        uscurrency tmp = {0, 0};
+        tmp.dollar = m.dollar+ val;
+
+        return tmp;
+}
+uscurrency operator -=(const uscurrency &m,int val)
+{
+        uscurrency tmp = {0, 0};
+        tmp.dollar = m.dollar- val;
+
+        return tmp;
+}
+
+
+ostream& operator << (ostream &o,const uscurrency &p)
+{
+    o << "$" << p.dollar << "," << p.cent << endl;
+    return o;
+}
+int main()
+{
+    uscurrency A(2, 75 );
+    uscurrency B(1, 50 );
+    uscurrency C = A - B;
+    C+=10;
+    cout << "A = " << A << "\n";
+    cout << "B = " << B << "\n";
+    cout << "C = " << C << "\n";
+
+    return 0;
+}
+
+
+#include <iostream>
+#include <string>
+#include <stdlib.h>//new y delete
+using namespace std;
+
+
+class Arreglo {
+private:
+	
+public:
+					int *arre;
+					int tamano;
+					int *arre2;
+					
+					Arreglo(int);
+					
+					void insertar_valor();
+					void eliminar_valor();
+					void vaciar_valor();
+					void mostrar_valor();
+					void reemplazar_valor();
+					int primo_valor();
+					int mayor_valor();
+					int menor_valor();
+					bool primo_valor();
+					bool mayorprim_valor();
+					char ordenar_valor();
+					int sumar_valor();
+	
+	
+	
+	
+	
+	
+					~Arreglo();
+};
+
+#include"Arreglo.h"
+
+Arreglo::Arreglo(int tamano) {
+	
+	this -> tamano = tamano;
+	arre = new int[tamano];
+	arre2 = new int[tamano];
+
+	
+
+}
+
+void Arreglo::insertar_valor() {
+	int nElem;
+	tamano += 1;
+	cout << "En que posición deseas cambiar "; cin >> nElem;
+	
+	for (int i = tamano-1; i >=0 ; i--) {
+		
+		if (i == nElem) {
+			break;
+		}
+		arre[i] = arre[i - 1];
+		arre[i - 1] = arre2[i - 1];
+	}
+
+	cout << "ingrese el elemento: "; cin >> arre[nElem];
+}
+
+void Arreglo::vaciar_valor() {
+	tamano = 1;
+	arre[0] = 0;
+}
+
+
+void Arreglo::reemplazar_valor() {
+	int nElem;
+	cout << "posición del valor a reemplazar "; cin >> nElem;
+	cout << "cual es tu numero ? : "; cin >> arre[nElem];
+}
+
+
+
+void Arreglo::mostrar_valor() {
+	for (int i = 0; i<tamano; i++) {
+		cout << arre[i] << " - ";
+	}
+	cout << endl;
+}
+
+Arreglo::~Arreglo() {
+
+	delete[] arre2;
+}
+int Arreglo::mayor(){
+    int mayor_valor=arre[0];
+    for(int i=0;i<tamano;i++){
+        if(arre[i]>mayor_valor){
+            mayor_valor=arre[i];}}
+    return mayor_valor;
+}
+
+
+
+void Arreglo::invertir_valor(){
+	for(int i=1;i<=(tamano/2);i++){
+        int pro=0;
+		
+		
+        pro=arre[i-1];
+        arre[i-1]=arre[tamano-i];
+        arre[tamano-i]=pro;}		
+}
+
+
+int Arreglo::menor_valor(){
+    int men=arre[0];
+	
+    for(int i=0;i<tamano;i++){
+	    
+        if(arre[i]<men){
+		
+            men=arre[i];}}
+	
+    return men;
+}
+
+float Arreglo::promedio_valor(){
+    float promedio=0;
+    for(int i=0;i<tamano;i++){
+        prom+=arre[i];}
+    promedio /=tamano;
+    return prom;
+}
+
+
+
+bool Arreglo::primo_valor(int pivo){
+    int i=1,valor=0;
+    while(i<=pivo){
+	    if(pivo%i){
+		    valor+=1;
+		    i++;
+   
+    if(valor>2){
+        return false;}
+    else{
+        return true;}
+}
+
+
+	    
+	    
+int Arreglo::mayorprim_valor(){
+    int mayor_valor=0;
+	
+    for(int e=0;e<tamano;e++){
+	    
+        if(primo_valor(arre[e])==true){
+		
+		
+            if(arre[e]>mayor_valor){
+                mayor_valor=arre[e];}}
+    }
+    if(mayor_valor==0){
+    	return 0;
+    return mayor_valor;
+}
+
+
+	
+	
+int Arreglo::menor_prim_valor(){
+    int men=0;
+	
+	
+    for(int e=0;e<tamano;e++){
+	    
+	    
+        if(primo_valor(arre[e])==true){
+        	if(men==0){
+        		men=arre[e];}
+
+            if(arre[e]<men){
+		    
+                men=arre[e];}}
+    }
+    if(men==0){
+	    
+    	return 0;
+	    
+    return men;
+}
+
+	
+	
+void Arreglo::ordenar_valor(){
+	
+    for(int i=1;i<tamano;i++){
+	    
+    	for(int cot=0;cot<tamano-1;cot++){
+		
+			 if(arre[cot]>arre[cot+1]){
+				 
+			 	int new=0;
+				 
+			 	new=arre[cot];
+				 
+                arre[cot]= arre[cot+1];
+				 
+                arre[cot+1]=new;} 
+    	}
+               	
+    }
+          
+}
+
+int Arreglo::sumar_valor(){
+    int sumatoria=0;
+	
+    for(int i=0;i<tamano;i++){
+	    
+        sumatoria+=arre[i];}
+	
+    return sumatoria;
+}
+#include "PointArray.h"
+#include "Point.h"
+#include <iostream>
+
+using namespace std;
+
+template<class T>
+PointArray<T>::PointArray()
+{
+    this->size=0;
+    this->points=new Point<T>[size];
+}
+
+template<class T>
+PointArray<T>::PointArray(const Point<T> pts[], const int size)
+{
+    this->size=size;
+    this->points=new Point<T>[size];
+    for(int i=0; i<size; i++)
+        points[i]=pts[i];
+}
+
+template<class T>
+PointArray<T>::PointArray(PointArray<T> &o)
+{
+    this->size=o.size;
+    this->points=new Point<T>[o.size];
+    for(int i=0; i<size ; ++i)
+        points[i]=o.points[i];
+}
+
+template<class T>
+void PointArray<T>::resize(int newSize){
+    Point<T> *pts = new Point<T>[newSize];
+    int minsize = (newSize > size) ? size : newSize;
+    for(int i=0; i<minsize ; i++)
+        pts[i] = points[i];
+    delete[] points;
+    size = newSize;
+    points = pts;
+}
+
+template<class T>
+void PointArray<T>::push_back(const Point<T> &p){
+    resize(size + 1);
+    points[size - 1] = p;
+}
+
+template<class T>
+void PointArray<T>::insert(const int pos, const Point<T> &p){ //posición que quieres insert
+    resize(size + 1);
+    for(int i=size-1; i>pos ; i--)
+        points[i]=points[i-1];
+    points[pos]=p;
+}
+
+template<class T>
+void PointArray<T>::remove(const int pos){
+    for(int i=pos; i<size-1 ; i++)
+        points[i]=points[i+1];
+    resize(size-1);
+
+
+}
+
+template<class T>
+int PointArray<T>::getSize()
+{
+    return size;
+}
+
+template<class T>
+void PointArray<T>::print(){
+    for(int i=0; i<size; i++)
+        points[i].print();
+}
+
+template<class T>
+PointArray<T>::~PointArray()
+{
+    delete[] points;
+}
+
+#include "Point.h"
+#include <iostream>
+
+using namespace std;
+
+template<class T>
+Point<T>::Point(T xh, T yh)
+{
+    x=xh;
+    y=yh;
+}
+
+template<class T>
+Point<T>::Point()
+{
+    x=0;
+    y=0;
+}
+
+template<class T>
+Point<T>::Point(Point<T> &o)
+{
+    x=o.x;
+    y=o.y;
+}
+
+template<class T>
+void Point<T>::print()
+{
+    std::cout << "(" << x << "," << y << ")" << std::endl;
+}
+
+template<class T>
+void Point<T>::offset(T nx, T ny)
+{
+    x+=nx;
+    y+=ny;
+}
+
+
+
+
+
+
+
+
+
+#ifndef POINT_H
+#define POINT_H
+
+template<class T>
+class Point
+{
+    public:
+        Point();
+        Point(Point<T> &o);
+        Point(T,T);
+        void offset(T,T);
+        void print();
+
+    private:
+        T x,y;
+};
+
+#endif // POINT_H
+
+
+
+
+
+
+
+#ifndef POINTARRAY_H
+#define POINTARRAY_H
+
+#include "Point.h"
+
+template<class T>
+class PointArray
+{
+    public:
+        PointArray();
+        PointArray(const Point<T> pts[], const int size);
+        PointArray(PointArray<T> &o);
+        ~PointArray();
+
+        void print();
+        int getSize();
+        void push_back(const Point<T> &p);
+        void insert(const int , const Point<T> &p);
+        void remove(const int);
+
+    private:
+        int size;
+        Point<T> *points;
+        void resize(int newSize);
+};
+#endif // POINTARRAY_H
+
+
+
+
+
+
+#include "Point.h"
+#include "PointArray.h"
+#include <iostream>
+#include <cctype>
+
+using namespace std;
+
+int main()
+{
+
+    Point <int , int>a (1,2);
+//    cout << print<int> (1,2) << endl;
+    return 0;
+}
