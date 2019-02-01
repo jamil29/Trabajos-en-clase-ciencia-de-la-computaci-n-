@@ -1,26 +1,29 @@
+#ifndef POLYGON_H
+#define POLYGON_H
 #include <iostream>
-#include "polygonarray.h"
-#include "Polygon.h"
-#include "PolygonArray.h"
-#include "Rectangle.h"
-#include "Triangle.h"
-
 
 using namespace std;
 
-int main()
+class Polygon
 {
+    public:
+        Polygon(int x , int y){
+            this ->width = x;
+            this ->height = y;
+        }
+        virtual void area()=0;
+        Polygon();
 
-    Polygon *ptr = new Rectangle(2,1);
-    Polygon *ptr2 = new Rectangle(2,1);
-    Polygon *ptr3 = new Rectangle(2,1);
-    Polygon *ptr4 = new Rectangle(2,1);
-    Polygon *ptr5 = new Rectangle(2,1);
+        void print_area(){
+            cout<<width <<height;
+        }
 
-    Polygon *super[]={ptr,ptr2,ptr3,ptr4,ptr5};
+    protected:
+        int width;
+        int height;
 
-    polygon **super_puntero = super;
+};
 
-    return 0;
+#endif // POLYGON_H
 
-}
+
