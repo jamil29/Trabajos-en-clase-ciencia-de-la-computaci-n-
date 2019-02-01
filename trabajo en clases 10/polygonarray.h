@@ -17,7 +17,7 @@ class PolygonArray
             sizee = newsize;
             data = ptr;
         }
-        
+
     public:
         PolygonArray(){
             sizee = 0;
@@ -29,7 +29,7 @@ class PolygonArray
             for(int i = 0;i < sizee;i++)
                 data[i] = ndata[i];
         }
-        PolygonArray(const Array &o){
+        PolygonArray(const PolygonArray &o){
             sizee = o.sizee;
             data = new Polygon*[sizee];
             for(int i = 0;i < sizee;i++)
@@ -63,7 +63,8 @@ class PolygonArray
             cout << endl;
         }
 
-        ~Array(){delete[] data;}
+        ~PolygonArray(){delete[] data;}
 
 
 };
+
