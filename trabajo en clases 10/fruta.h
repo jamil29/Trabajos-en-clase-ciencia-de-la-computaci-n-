@@ -1,11 +1,11 @@
-#ifndef FRUTA_H
-#define FRUTA_H
+#include <iostream>
 
+using namespace std;
 
-
+template<class val>
 class Fruta{
         public:
-                int x,y;
+                val x,y;
                 char cuerpo=254;
 };
 
