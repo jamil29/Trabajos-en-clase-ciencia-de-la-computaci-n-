@@ -59,12 +59,14 @@ void Juego::muerte2(){
 
         }
         gotoxy(33,r);
-        cout<<"Score: "<<score;
+        cout<<"TU PUNTAJE FINAL FUE DE : "<<score;
         r++;
         gotoxy(33,r);
-        cout<<"Level: "<<nivel;
+        cout<<"TU NIVEL MAXIMO ALCANZADO FUE DE: "<<nivel;
+        gotoxy(8,21);
+        cout<<"-PRESIONA CUALQUIER TECLA PARA VOLVER A INTENTARLO- ";
         gotoxy(8,23);
-        cout<<"Presione ESC para salir o cualquier otra tecla para seguir jugando";
+        cout<<"-PRESIONE ESCAPE PARA SALIR DEL JUEGO-";
         key=getch();
         if(key==27)
                 exit(1);
@@ -107,19 +109,21 @@ void Juego::portada(){
                 r++;
                 cout<<snkl[i]<<endl;
         }
-        gotoxy(23,23);
-        cout<<"Precione ENTER para empezar";
+        gotoxy(20,21);
+        cout<<"PRESIONA ENTER PARA EMPEZAR EL JUEGO DE SNAKE ";
+        gotoxy(20,22);
+        cout<<"Freddy Jamil Hurtado Tapia";
         system("pause>dsdsd");
 }
 
 
 void Juego::puntos(){
         gotoxy(f+2,2);
-        cout<<"Score: "<<(score-1)*10;
+        cout<<"PUNTAJE: "<<(score-1)*10;
         gotoxy(f+2,4);
-        cout<<"Level: "<<nivel;
+        cout<<"NIVEL: "<<nivel;
         gotoxy(f+2,6);
-        cout<<"Length: "<<tam;
+        cout<<"TAMAÑO : "<<tam;
 
 
 }
@@ -140,14 +144,12 @@ void Juego::tablero(){
 }
 
 void Juego::genFruta(){
-
     fruta.x = 2+( rand() % (f-2) );
     fruta.y = 2+(rand() % (c-2));
     gotoxy(fruta.x,fruta.y);
     cout<<fruta.cuerpo;
 
 }
-
 void Juego::muerte(){
         if(snake[0].x==1 || snake[0].x==f || snake[0].y==1 || snake[0].y==c)
         gameover=true;
@@ -260,7 +262,7 @@ void Juego::loop(){
 }
 
 void Juego::main(){
-        system("color 0a");
+        system("color 20a");
         gameover=false;
         portada();
         system("cls");
