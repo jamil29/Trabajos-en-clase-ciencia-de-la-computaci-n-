@@ -1,15 +1,14 @@
-#ifndef SNAKE_H
-#define SNAKE_H
+#include <iostream>
 
+using namespace std;
 
-
+template<class t>
 class Snake{
         public:
-                int x,y;
-                int dx,dy;
+                t x,y;
+                t dx,dy;
                 char cuerpo;
 };
 
 
 #endif // SNAKE_H
-  
