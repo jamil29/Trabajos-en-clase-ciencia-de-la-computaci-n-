@@ -1,15 +1,14 @@
-#ifndef JUEGO_H
-#define JUEGO_H
 #include "Snake.h"
 #include "Fruta.h"
+
 
 class Juego{
         public:
                 void main();
         private:
                 int score,nivel,velocidad;
-                Snake snake[100];
-                Fruta fruta;
+                Snake<int> snake[1000];
+                Fruta<int> fruta;
                 int tam=4;
                 int c=21,f=64;
                 bool gameover=false;
